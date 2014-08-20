@@ -1,0 +1,283 @@
+<!doctype html>
+<html class="no-js" lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>IDEA快捷键速查</title>
+  <meta name="description" content="IDEA_KEY_LIST">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="res/lib/bootstrap-3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="res/css/index.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+  <script src="res/lib/other/html5shiv.min.js"></script>
+  <script src="res/lib/other/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">IDEA快捷键速查</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+      </ul>
+      <div class="navbar-form">
+        <input id="keySearchInp" type="text" class="form-control" placeholder="Search...">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 col-md-2 sidebar">
+      <ul class="nav nav-sidebar" id="menu_container">
+      </ul>
+    </div>
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <div class=".row-fluid" id="key_container">
+
+      </div>
+    </div>
+  </div>
+</div>
+<script src="res/lib/jquery-1.11.1/jquery-1.11.1.min.js"></script>
+<script src="res/lib/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+<script src="res/lib/icanhz/ICanHaz.min.js"></script>
+<script type="text/javascript">
+  var KEYS = [
+    {"desc":"基本代码补全","key":"ctrl+分号","custom":"自定义","type":"编辑"},
+    {"desc":"智能代码补全","key":"ctrl+shift+分号","custom":"自定义","type":"编辑"},
+    {"desc":"类名补全","key":"ctrl+alt+分号","custom":"自定义","type":"编辑"},
+    {"desc":"完成指令","key":"ctrl+shift+回车","custom":"","type":"编辑"},
+    {"desc":"参数信息","key":"ctrl+p","custom":"","type":"编辑"},
+    {"desc":"快速DOC查看","key":"ctrl+q","custom":"","type":"编辑"},
+    {"desc":"外部DOC","key":"shift+F1","custom":"","type":"编辑"},
+    {"desc":"简要信息","key":"ctrl+(mouse over)","custom":"","type":"编辑"},
+    {"desc":"错误/警告描述","key":"ctrl+F1","custom":"","type":"编辑"},
+    {"desc":"生成代码","key":"alt+insert","custom":"","type":"编辑"},
+    {"desc":"重载函数","key":"ctrl+o","custom":"重载,覆盖","type":"编辑"},
+    {"desc":"实现函数","key":"ctrl+i","custom":"实现","type":"编辑"},
+    {"desc":"包围","key":"ctrl+alt+t","custom":"try..catch","type":"编辑"},
+    {"desc":"行注释","key":"ctrl+/","custom":"","type":"编辑"},
+    {"desc":"块注释","key":"ctrl+shift+/","custom":"","type":"编辑"},
+    {"desc":"扩大选择范围","key":"ctrl+w","custom":"","type":"编辑"},
+    {"desc":"缩小选择范围","key":"ctrl+shift+w","custom":"","type":"编辑"},
+    {"desc":"上下文信息","key":"ctrl+q","custom":"DOC,定义","type":"编辑"},
+    {"desc":"显示问题/快速补全","key":"alt+回车","custom":"","type":"编辑"},
+    {"desc":"格式化代码","key":"ctrl+alt+l","custom":"格式化","type":"编辑"},
+    {"desc":"优化导入","key":"ctrl+alt+o","custom":"删除,优化,导入包","type":"编辑"},
+    {"desc":"快速缩进","key":"ctrl+alt+i","custom":"","type":"编辑"},
+    {"desc":"缩进","key":"tab","custom":"","type":"编辑"},
+    {"desc":"取消缩进","key":"shift+tab","custom":"","type":"编辑"},
+    {"desc":"剪切","key":"ctrl+x或shift+delete","custom":"","type":"编辑"},
+    {"desc":"复制","key":"ctrl+c或ctrl+insert","custom":"","type":"编辑"},
+    {"desc":"粘贴","key":"ctrl+v或shift+insert","custom":"","type":"编辑"},
+    {"desc":"剪切板记录","key":"ctrl+shift+v","custom":"记录,剪切板","type":"编辑"},
+    {"desc":"重复行(块)","key":"ctrl+d","custom":"","type":"编辑"},
+    {"desc":"删除行","key":"ctrl+y","custom":"","type":"编辑"},
+    {"desc":"智能行合并","key":"ctrl+shift+j","custom":"","type":"编辑"},
+    {"desc":"只能行拆分","key":"ctrl+回车","custom":"","type":"编辑"},
+    {"desc":"开始新行","key":"shift+回车","custom":"","type":"编辑"},
+    {"desc":"大小写转换","key":"ctrl+shift+u","custom":"转换,大小写","type":"编辑"},
+    {"desc":"选择到块首","key":"ctrl+shift+[","custom":"","type":"编辑"},
+    {"desc":"选择到块尾","key":"ctrl+shift+]","custom":"","type":"编辑"},
+    {"desc":"删除到单词结尾","key":"ctrl+delete","custom":"","type":"编辑"},
+    {"desc":"删除到单词开头","key":"ctrl+backspace","custom":"","type":"编辑"},
+    {"desc":"收起","key":"ctrl+减号","custom":"","type":"编辑"},
+    {"desc":"展开","key":"ctrl+加号","custom":"","type":"编辑"},
+    {"desc":"收起所有","key":"ctrl+shift+减号","custom":"","type":"编辑"},
+    {"desc":"展开所有","key":"ctrl+shift+加号","custom":"","type":"编辑"},
+    {"desc":"关闭当前编辑页","key":"ctrl+F4","custom":"","type":"编辑"},
+    {"desc":"查找引用","key":"ctrl+F7或alt+F7","custom":"","type":"引用查询"},
+    {"desc":"当前文件高亮引用","key":"ctrl+shift+F7","custom":"","type":"引用查询"},
+    {"desc":"快速显示引用","key":"ctrl+alt+F7","custom":"","type":"引用查询"},
+    {"desc":"查找","key":"ctrl+f","custom":"","type":"查询和替换"},
+    {"desc":"查找下一个","key":"F3","custom":"","type":"查询和替换"},
+    {"desc":"查找上一个","key":"shift+F3","custom":"","type":"查询和替换"},
+    {"desc":"替换","key":"ctrl+r","custom":"","type":"查询和替换"},
+    {"desc":"在..(路径)下查找","key":"ctrl+shift+f","custom":"","type":"查询和替换"},
+    {"desc":"在..(路径)下替换","key":"ctrl+shift+r","custom":"","type":"查询和替换"},
+    {"desc":"在源文件中查找","key":"ctrl+shift+s","custom":"","type":"查询和替换"},
+    {"desc":"在源文件中替换","key":"ctrl+shift+m","custom":"","type":"查询和替换"},
+    {"desc":"构建(make)项目","key":"ctrl+F9","custom":"","type":"编译和运行"},
+    {"desc":"编译(compile)文件/包/模块","key":"ctrl+shift+F9","custom":"","type":"编译和运行"},
+    {"desc":"选择配置并运行","key":"alt+shift+F10","custom":"","type":"编译和运行"},
+    {"desc":"选择配置并调试","key":"alt+shift+F9","custom":"","type":"编译和运行"},
+    {"desc":"运行","key":"shift+F10","custom":"","type":"编译和运行"},
+    {"desc":"调试","key":"shift+F9","custom":"","type":"编译和运行"},
+    {"desc":"根据编辑器上下文运行","key":"ctrl+shift+F10","custom":"","type":"编译和运行"},
+    {"desc":"步过","key":"F8","custom":"","type":"调试"},
+    {"desc":"步入","key":"F7","custom":"","type":"调试"},
+    {"desc":"智能步入","key":"shift+F7","custom":"","type":"调试"},
+    {"desc":"步出","key":"shift+F8","custom":"","type":"调试"},
+    {"desc":"强制步过","key":"alt+shift+F8","custom":"","type":"调试"},
+    {"desc":"强制步入","key":"alt+shift+F7","custom":"","type":"调试"},
+    {"desc":"运行到光标处","key":"alt+F9","custom":"","type":"调试"},
+    {"desc":"强制运行到光标处","key":"alt+shift+F9","custom":"","type":"调试"},
+    {"desc":"赋值表达式","key":"alt+F8","custom":"","type":"调试"},
+    {"desc":"恢复程序","key":"F9","custom":"","type":"调试"},
+    {"desc":"设置断点","key":"ctrl+F8","custom":"","type":"调试"},
+    {"desc":"浏览断点","key":"ctrl+shift+F8","custom":"","type":"调试"},
+    {"desc":"检索类","key":"ctrl+n","custom":"","type":"导航"},
+    {"desc":"检索文件","key":"ctrl+shift+n","custom":"","type":"导航"},
+    {"desc":"检索标记(方法名/变量名等)","key":"ctrl+alt+shift+n","custom":"","type":"导航"},
+    {"desc":"转到测试类","key":"ctrl+shift+t","custom":"","type":"导航"},
+    {"desc":"下一个tab页","key":"alt+→","custom":"","type":"导航"},
+    {"desc":"上一个tab页","key":"alt+←","custom":"","type":"导航"},
+    {"desc":"回显工具窗口","key":"F12","custom":"","type":"导航"},
+    {"desc":"隐藏工具窗口","key":"esc","custom":"","type":"导航"},
+    {"desc":"隐藏主或最后活动窗口","key":"shift+esc","custom":"","type":"导航"},
+    {"desc":"关闭活动tab","key":"ctrl+shift+F4","custom":"","type":"导航"},
+    {"desc":"转到行","key":"ctrl+g","custom":"","type":"导航"},
+    {"desc":"最近打开文件","key":"ctrl+e","custom":"","type":"导航"},
+    {"desc":"返回","key":"ctrl+alt+←","custom":"","type":"导航"},
+    {"desc":"前进","key":"ctrl+alt+→","custom":"","type":"导航"},
+    {"desc":"前往最后编辑","key":"ctrl+shift+backspace","custom":"","type":"导航"},
+    {"desc":"追踪文件","key":"alt+F1","custom":"","type":"导航"},
+    {"desc":"前往(方法)声明","key":"ctrl+b或ctrl+鼠标点击","custom":"","type":"导航"},
+    {"desc":"前往(方法)实现","key":"ctrl+alt+b","custom":"","type":"导航"},
+    {"desc":"快速查看(方法/类)","key":"ctrl+shift+i","custom":"","type":"导航"},
+    {"desc":"前往类型声明","key":"ctrl+shift+b","custom":"","type":"导航"},
+    {"desc":"前往父(方法/类)","key":"ctrl+u","custom":"","type":"导航"},
+    {"desc":"上一个方法","key":"alt+↑","custom":"","type":"导航"},
+    {"desc":"下一个方法","key":"alt+↓","custom":"","type":"导航"},
+    {"desc":"代码块头","key":"ctrl+[","custom":"","type":"导航"},
+    {"desc":"代码块尾","key":"ctrl+]","custom":"","type":"导航"},
+    {"desc":"文件结构查看","key":"ctrl+F12","custom":"","type":"导航"},
+    {"desc":"类结构查看","key":"ctrl+h","custom":"","type":"导航"},
+    {"desc":"方法结构查看","key":"ctrl+shift+h","custom":"","type":"导航"},
+    {"desc":"调用结构查看","key":"ctrl+alt+h","custom":"","type":"导航"},
+    {"desc":"下一个错误","key":"F2","custom":"","type":"导航"},
+    {"desc":"前一个错误","key":"shift+F2","custom":"","type":"导航"},
+    {"desc":"编辑源码","key":"F4","custom":"","type":"导航"},
+    {"desc":"预览源码","key":"ctrl+回车","custom":"","type":"导航"},
+    {"desc":"显示跳行条","key":"alt+home","custom":"","type":"导航"},
+    {"desc":"标记","key":"F11","custom":"","type":"导航"},
+    {"desc":"带注释标记","key":"ctrl+shift+F11","custom":"","type":"导航"},
+    {"desc":"转到数字标记书签","key":"ctrl+[0到9]","custom":"","type":"导航"},
+    {"desc":"显示书签","key":"shift+F11","custom":"","type":"导航"},
+    {"desc":"复制","key":"F5","custom":"","type":"重构"},
+    {"desc":"移动","key":"F6","custom":"","type":"重构"},
+    {"desc":"安全删除","key":"alt+delete","custom":"","type":"重构"},
+    {"desc":"重命名","key":"shift+F6","custom":"","type":"重构"},
+    {"desc":"类型迁移","key":"ctrl+shift+F6","custom":"","type":"重构"},
+    {"desc":"修改签名","key":"ctrl+F6","custom":"","type":"重构"},
+    {"desc":"嵌入","key":"ctrl+alt+n","custom":"","type":"重构"},
+    {"desc":"导出函数","key":"ctrl+alt+m","custom":"","type":"重构"},
+    {"desc":"引入变量","key":"ctrl+alt+v","custom":"","type":"重构"},
+    {"desc":"引入属性(field)","key":"ctrl+alt+f","custom":"","type":"重构"},
+    {"desc":"引入构造","key":"ctrl+alt+c","custom":"","type":"重构"},
+    {"desc":"引入参数","key":"ctrl+alt+p","custom":"","type":"重构"},
+    {"desc":"提交","key":"ctrl+k","custom":"","type":"版本控制"},
+    {"desc":"更新","key":"ctrl+t","custom":"","type":"版本控制"},
+    {"desc":"查看最近更改","key":"alt+shift+c","custom":"","type":"版本控制"},
+    {"desc":"版本控制快速弹出(列表)","key":"alt+`","custom":"","type":"版本控制"},
+    {"desc":"用模板包围","key":"ctrl+alt+j","custom":"","type":"模板"},
+    {"desc":"插入模板","key":"ctrl+j","custom":"iter Java1.5样式的迭代<br/>inst instanceof<br/>itco 迭代Collection<br/>itit 迭代Iterator<br/>itli 迭代list<br/>itve 迭代list<br/>iten 迭代枚举<br/>itar 迭代数组<br/>ritar 迭代数组(反向)<br/>lst 取得数组最后一个<br/>toar 将collection转为数组<br/>mn 设置较小的值<br/>mx 设置较大的值<br/>psf public static final<br/>psvm main函数<br/>serr 输入System.err<br/>sout 输出System.out<br/>soutm 输出类或函数名<br/>soutv 输出值<br/>thr throw new","type":"模板"},
+    {"desc":"打开工具窗口","key":"alt+[0到9]","custom":"","type":"其他"},
+    {"desc":"保存","key":"ctrl+s","custom":"","type":"其他"},
+    {"desc":"同步","key":"ctrl+alt+y","custom":"","type":"其他"},
+    {"desc":"切换全屏","key":"ctrl+alt+F11","custom":"","type":"其他"},
+    {"desc":"切换编辑器最大化","key":"ctrl+shift+F12","custom":"","type":"其他"},
+    {"desc":"添加到收藏夹","key":"alt+shift+F","custom":"","type":"其他"},
+    {"desc":"根据当前配置检查","key":"alt+shift+i","custom":"","type":"其他"},
+    {"desc":"快速切换样式","key":"ctrl+`","custom":"","type":"其他"},
+    {"desc":"打开设置窗口","key":"ctrl+alt+s","custom":"","type":"其他"},
+    {"desc":"打开项目设置窗口","key":"ctrl+alt+shift+s","custom":"","type":"其他"},
+    {"desc":"查找动作","key":"ctrl+shift+a","custom":"","type":"其他"},
+    {"desc":"切换","key":"ctrl+tab","custom":"","type":"其他"}
+  ];
+  var KEY_TYPE=['全部','编辑','引用查询','查询和替换','编译和运行','调试','导航','重构','版本控制','模板','其他'];
+</script>
+
+<script id="key_temp" type="text/html">
+  <div class="col-xs-4">
+    <h2>{{desc}}</h2>
+    <h4>{{key}}</h4>
+    <h5>{{type}}</h5>
+    <p>{{{custom}}}</p>
+  </div>
+</script>
+<script type="text/javascript">
+  var Keys = function(){
+
+    var activeMenu = function(jqDom){
+      $(jqDom.parent()).find("li").removeClass("active");
+      jqDom.addClass("active");
+    };
+
+    var buildMenu = function(data){
+      var container = $("#menu_container");
+      $.each(data, function(idx,val){
+        container.append("<li><a>"+val+"</a></li>");
+      });
+
+      activeMenu(container.find("li:first"));
+      container.find("li").click(function(){
+        activeMenu($(this));
+        filter($(this).text(),1);
+        $("#keySearchInp").val("");
+      });
+    };
+
+    var filter = function(word,key){
+      if(key&&word=="全部"){
+        buildContent(KEYS);
+        return;
+      }
+      var data = [];
+      $.each(KEYS, function(idx,val){
+        if(key && val.type == word){
+          data.push(val);
+        }else{
+          var t = new RegExp(word);
+          if(val.desc.indexOf(word)>=0||val.key.indexOf(word)>=0)
+            data.push(val);
+        }
+      });
+      buildContent(data);
+    };
+
+    var buildContent = function(data){
+      var container = $("#key_container");
+      container.html("");
+      $.each(data, function(idx,val){
+        container.append(ich.key_temp(val));
+      });
+    };
+
+    var initSearch = function(){
+
+      $("#keySearchInp").keyup(function(){
+        activeMenu($("#menu_container li:first"));
+        buildContent(KEYS);
+        var text = $.trim($(this).val());
+        if(text){
+          filter(text);
+        }
+      });
+    };
+    return {
+      init:function(){
+        buildMenu(KEY_TYPE);
+        buildContent(KEYS);
+        initSearch();
+      }
+    };
+  }();
+
+  $(function(){
+    Keys.init();
+  });
+</script>
+</body>
+</html>
